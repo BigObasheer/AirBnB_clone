@@ -11,13 +11,12 @@ class BaseModel:
         """ Initialize """
         self.id = uuid4()
         self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        self.updated_at = self.created_at
 
     def __str__(self):
         """ Return string """
         class_name = self.__class__.__name__
-        id = self.id
-        return "[{}] ({}) {}".format(class_name, id, self.__dict__)
+        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
 
     def save(self):
         """ Update datetime """
