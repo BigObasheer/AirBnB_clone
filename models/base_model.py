@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ AirBnb Clone """
-from uuid import uuid4 
+from uuid import uuid4
 from datetime import datetime
 
 
@@ -29,8 +29,6 @@ class BaseModel:
 
     def to_dict(self):
         """ Returns dict of the instance """
-        # attrs = {}
-        # attrs['id'], attrs['created_at'], attrs['updated_at'] = self.id, self.created_at, self.updated_at
         attrs = dict(self.__dict__)
         attrs['__class__'] = self.__class__.__name__
         attrs['created_at'] = self.created_at.isoformat('T')
