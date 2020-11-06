@@ -7,11 +7,16 @@ from datetime import datetime
 class BaseModel:
     """ Class BaseModel """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ Initialize """
-        self.id = uuid4()
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+        if not kwargs or len(kwargs) == 0:
+            self.id = uuid4()
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+        else:
+            for k in kwargs.keys():
+                if k != "__class__":
+                    setattr(self, k, kwargs[k])
 
     def __str__(self):
         """ Return string """
