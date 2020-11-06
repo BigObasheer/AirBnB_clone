@@ -1,4 +1,4 @@
-#!/usr4/bin/python3
+#!/usr/bin/python3
 """ AirBnb Clone """
 from uuid import uuid4 
 from datetime import datetime
