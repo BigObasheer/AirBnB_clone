@@ -20,6 +20,7 @@ classes = {"BaseModel": BaseModel,
            "State": State,
            "User": User}
 
+
 class HBNBCommand(cmd.Cmd):
     """ AirBnB Interpreter Entry Point """
     prompt = '(hbnb) '
@@ -86,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
             except:
                 print("** no instance found **")
 
-     def do_all(self, args):
+    def do_all(self, args):
         """Prints all instances based or not on the class name """
         args = args.split()
         objs = storage.all()
@@ -97,11 +98,11 @@ class HBNBCommand(cmd.Cmd):
                 if args:
                     if args[0] == key.split(".")[0]:
                         print(objs[key])
-                else:
-                    print(objs[key])
+                    else:
+                        print(objs[key])
 
-     def do_update(self, args):
-        """ Updates an object with new attribute """
+    def do_update(self, args):
+        """ Updates an object """
         args = args.split()
         size = len(args)
         objs = storage.all()
